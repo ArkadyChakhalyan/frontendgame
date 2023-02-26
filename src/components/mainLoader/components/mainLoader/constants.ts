@@ -1,0 +1,1 @@
+export const MAIN_LOADER_TEXT = 'Loading';
