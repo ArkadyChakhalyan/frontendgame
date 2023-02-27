@@ -4,9 +4,11 @@ import { App } from "./app";
 import { grey } from "@mui/material/colors";
 import { GlobalStyles, ThemeProvider } from "@mui/material";
 import { theme } from "./styles/theme";
+import { store } from "./store/store";
+import { Provider } from "react-redux";
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+    document.getElementById('root') as HTMLElement
 );
 
 const globalStyles = {
@@ -22,10 +24,12 @@ const globalStyles = {
 };
 
 root.render(
-  <React.StrictMode>
-      <ThemeProvider theme={theme}>
-          <GlobalStyles styles={globalStyles} />
-          <App />
-      </ThemeProvider>
-  </React.StrictMode>
+    <React.StrictMode>
+        <Provider store={store}>
+            <ThemeProvider theme={theme}>
+                <GlobalStyles styles={globalStyles} />
+                <App />
+            </ThemeProvider>
+        </Provider>
+    </React.StrictMode>
 );
